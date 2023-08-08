@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import tasks from "./routes/tasks";
 
 const app = express();
 app.use(cors());
@@ -18,3 +19,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`The application is listening on port ${PORT}!`);
 });
+
+app.use("/api/tasks", tasks);
