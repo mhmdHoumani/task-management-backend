@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { IMongooseTask } from "../types/task.type";
 
 const TaskSchema = new Schema(
@@ -13,7 +13,7 @@ const TaskSchema = new Schema(
       required: true,
       trim: true,
     },
-    dob: {
+    due_date: {
       type: Date,
       trim: true,
       required: true,
@@ -22,5 +22,5 @@ const TaskSchema = new Schema(
   { timestamps: true }
 );
 
-const Task = model<IMongooseTask>("tasks", TaskSchema);
+const Task = models.Task || model<IMongooseTask>("Task", TaskSchema);
 export default Task;

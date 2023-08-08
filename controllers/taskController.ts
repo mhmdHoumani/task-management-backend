@@ -122,7 +122,7 @@ const deleteTask = async (req: Request, res: Response) => {
 
 const createTask = async (req: Request, res: Response) => {
   const { title, description, due_date } = req.body;
-  if (!title || !description || due_date) {
+  if (!title || !description || !due_date) {
     return res.json({
       status: 403,
       message: "All fields must be provided",
