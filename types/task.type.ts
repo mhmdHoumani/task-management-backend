@@ -11,8 +11,6 @@ export interface ITask {
 //   statusCode?: number;
 //   code?: string;
 //   message?: string;
-
-//   token: string;
 // }
 
 export interface IMongooseTask extends Document, ITask {

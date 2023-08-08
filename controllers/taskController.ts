@@ -132,7 +132,7 @@ const createTask = async (req: Request, res: Response) => {
     await Task.create({
       title,
       description,
-      due_date
+      due_date,
     });
     return res.status(201).json({
       status: 201,
@@ -147,3 +147,5 @@ const createTask = async (req: Request, res: Response) => {
     });
   }
 };
+
+export { getAllTasks, getTask, editTask, deleteTask, createTask };
