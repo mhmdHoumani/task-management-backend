@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import tasks from "./routes/tasks";
+import connectDB from "./configuration/connect-database";
 
 const app = express();
 app.use(cors());
@@ -16,7 +17,8 @@ app.get("/", (req, res) => {
   res.status(200).send("API is healthy");
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  await connectDB();
   console.log(`The application is listening on port ${PORT}!`);
 });
 
